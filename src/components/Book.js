@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/Book.css';
 import PropTypes from 'prop-types';
-import $ from 'jquery'
+import axios from 'axios';
 
 class Book extends Component {
 	constructor(props) {
@@ -16,7 +16,6 @@ class Book extends Component {
 	componentWillMount() {
 		this.state = {
 			isbn: this.props.isbn,
-			defaultMessage: this.props.defaultMessage,
 			title: this.props.title,
 			author: this.props.author,
 			publisher: this.props.publisher,
@@ -34,7 +33,6 @@ class Book extends Component {
 
 	handleSave() {
 		this.props.firebaseDBRef.child(this.props.id).set({
-      		defaultMessage: this.props.defaultMessage,
       		isbn: this.refs.isbnContent.value,
 			title: this.refs.titleContent.value,
 			author: this.refs.authorContent.value,
@@ -42,7 +40,6 @@ class Book extends Component {
 			datePublished: this.refs.datePublishedContent.value
     	});
 		this.setState({
-			defaultMessage: this.props.defaultMessage,
 			isbn: this.refs.isbnContent.value,
 			title: this.refs.titleContent.value,
 			author: this.refs.authorContent.value,
@@ -58,12 +55,15 @@ class Book extends Component {
 
 	search(query) {
 		let googleTitle, googleAuthor, googlePublisher, googleDatePublished, entryId;
-		entryId = this.state.id;
-		$.get('https://www.googleapis.com/books/v1/volumes?q=' + query, function (data) {
-			googleTitle = data.items[0].volumeInfo.title;
-			googleAuthor = data.items[0].volumeInfo.authors;
-			googlePublisher = data.items[0].volumeInfo.publisher;
-			googleDatePublished = data.items[0].volumeInfo.publishedDate;
+		entryId = this.state.id;		
+	
+		axios.get('https://www.googleapis.com/books/v1/volumes?q=' + query)
+			.then(res => {		
+
+			googleTitle = res.data.items[0].volumeInfo.title;
+			googleAuthor = res.data.items[0].volumeInfo.authors;
+			googlePublisher = res.data.items[0].volumeInfo.publisher;
+			googleDatePublished = res.data.items[0].volumeInfo.publishedDate;	
 
 			googleTitle === undefined ? googleTitle = '': googleTitle;
 			googleAuthor === undefined ? googleAuthor = '': googleAuthor;
@@ -85,8 +85,6 @@ class Book extends Component {
 	render() {
 		let isbnElement,titleElement,authorElement,publisherElement,datePublishedElement,defaultElement,buttonArea,otherEntries;
 		
-
-
 		if (this.state.editMode) {
 			defaultElement = <div><h5>Book information</h5></div>
 			isbnElement = <div><input ref="isbnContent" className={'form-control isbn-input ' + this.state.id} defaultValue={this.state.isbn} placeholder='ISBN'></input><button className='btn isbn-input' onClick={this.updateSearch}>Search by ISBN</button> </div>
