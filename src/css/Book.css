@@ -1,0 +1,45 @@
+ul {
+	list-style-type: none
+}
+
+.card-view {
+  margin: 8px 0;
+}
+
+.body-textarea {
+  resize: none;
+  width: 100%;
+}
+
+.title-textarea {
+  font-size: 24px;
+  font-weight: bold;
+  resize: none;
+  width: 100%;
+}
+
+.column {
+	display: inline-block;
+}
+
+.button-area {
+	margin-top: .5rem;
+}
+
+.non-isbn-input {
+	margin-top: .3rem;
+}
+
+.isbn-input {
+	display: inline-block;
+}
+
+.form-control.isbn-input {
+	width: 60%;
+}
+
+.btn.isbn-input {
+	background-color: lightgray;
+	margin-bottom: .3rem;
+	margin-left: .2rem;
+}

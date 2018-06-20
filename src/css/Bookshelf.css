@@ -1,0 +1,23 @@
+.bookshelf-title-button {
+	margin-left: 1rem;
+}
+
+.container-bookshelf {
+	background-color: #464646;
+	margin: 5rem 0rem 5rem 0rem;
+	padding: 0.25rem 1rem 1.5rem 2rem;
+}
+
+.div-board {
+  border: solid #f7f7f9;
+}
+
+.div-bookshelf {
+	margin: 1rem 0rem 1rem 0rem;
+}
+
+.add {
+  margin: 1rem 15px 0;
+}
+
+

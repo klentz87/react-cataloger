@@ -1,0 +1,27 @@
+body {
+	background-color: #191919; 
+}
+
+h1, h2, h3, h4, button p {
+	color: white;
+}
+
+h1 {
+	font-size: 7rem;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.jumbotron {
+	height: 25rem;
+	background-image: url('../images/bookcase_background.png');
+	border-bottom: 1px solid black;
+}
+
+.bookshelf-container {
+	padding: 1rem;
+}
+
+.top-row {
+	margin-bottom: 5rem;
+}
+
