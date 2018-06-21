@@ -16,5 +16,5 @@ function getFirebaseRef(refPath) {
 }
 
 export default {
-  getFirebaseRef: getFirebaseRef
+  getFirebaseRef: getFirebaseRef,
 };

@@ -4,8 +4,6 @@ import Book from './Book.js';
 import PropTypes from 'prop-types';
 import myFirebase from '../utility/MyFirebase';
 
-const DEFAULT_MESSAGE = "Click edit to enter a book!"
-
 class Bookshelf extends Component {
 	constructor() {
 		super();
@@ -26,7 +24,6 @@ class Bookshelf extends Component {
 	        	this.state.books.unshift(
 	          		{
 	            		id: key,
-	            		defaultMessage: books[key].defaultMessage,
 	            		isbn: books[key].isbn,
 	            		title: books[key].title,
 	            		author: books[key].author,
@@ -38,7 +35,6 @@ class Bookshelf extends Component {
 	    } else {
 	    	let pushRef = this.firebaseDBRef.push();
 	    	pushRef.set({
-	    		defaultMessage: DEFAULT_MESSAGE,
 	            isbn: '',
 	            title: '',
 	            author: '',
@@ -48,7 +44,6 @@ class Bookshelf extends Component {
 	    	this.state.books.unshift(
 	        	{
 	          		id: pushRef.key,
-	          		defaultMessage: DEFAULT_MESSAGE,
 	          		isbn: '',
 	            	title: '',
 	            	author: '',
