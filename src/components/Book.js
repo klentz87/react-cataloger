@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import '../css/Book.css';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import firebase from 'firebase';
-//import FileUploader from 'react-firebase-file-uploader';
 
 class Book extends Component {
 	constructor(props) {
@@ -16,7 +14,7 @@ class Book extends Component {
 	}
 
 	componentWillMount() {
-		this.state = {
+		this.setState({
 			isbn: this.props.isbn,
 			title: this.props.title,
 			author: this.props.author,
@@ -27,7 +25,7 @@ class Book extends Component {
 			url: '',
 			progress: 0,
 			editMode: false
-		}
+		})
 	}
 
 	handleEdit() {
@@ -87,7 +85,7 @@ class Book extends Component {
 	}
 
 	render() {
-		let isbnElement,titleElement,authorElement,publisherElement,datePublishedElement,defaultElement,uploaderElement,buttonArea;
+		let isbnElement,titleElement,authorElement,publisherElement,datePublishedElement,defaultElement,buttonArea;
 		
 		if (this.state.editMode) {
 			defaultElement = <div><h5>Book information</h5></div>
