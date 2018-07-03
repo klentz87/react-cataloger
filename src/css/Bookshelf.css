@@ -9,7 +9,7 @@
 }
 
 .div-board {
-  border: solid #f7f7f9;
+  	border: solid #f7f7f9;
 }
 
 .div-bookshelf {
@@ -17,7 +17,11 @@
 }
 
 .add {
-  margin: 1rem 15px 0;
+  	margin: 1rem 15px 0;
+}
+
+.search-bar {
+	min-width: 15rem;
 }
 
 

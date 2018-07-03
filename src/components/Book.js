@@ -21,10 +21,7 @@ class Book extends Component {
 			publisher: this.props.publisher,
 			datePublished: this.props.datePublished,
 			id: this.props.id,
-			image: null,
-			url: '',
-			progress: 0,
-			editMode: false
+
 		})
 	}
 
@@ -108,6 +105,7 @@ class Book extends Component {
 				publisherElement = <li>{this.state.publisher}</li>;
 				datePublishedElement = <li>{this.state.datePublished}</li>;		
 			}
+
 			buttonArea = <div className='button-area'><button className="btn btn-info" onClick={this.handleEdit}>Edit</button><button className="btn btn-danger" onClick={this.handleDelete}>Delete</button></div>
 		}
 
