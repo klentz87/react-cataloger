@@ -21,7 +21,9 @@
 }
 
 .search-bar {
-	min-width: 15rem;
+	width: 25%;
+	min-width: 13rem;
+
 }
 
 
